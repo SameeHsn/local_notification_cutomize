@@ -52,6 +52,15 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
 
     // Obtain the FirebaseAnalytics instance.
     mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
+
+    mFirebaseAnalytics.registerCustomDimension("currentDateTime");
+    mFirebaseAnalytics.registerCustomDimension("scheduledDateTime");
+    mFirebaseAnalytics.registerCustomDimension("isPowerSavingModeOn");
+    mFirebaseAnalytics.registerCustomDimension("isDoNotDisturbOn");
+    mFirebaseAnalytics.registerCustomDimension("isBatteryOptimizationEnabled");
+    mFirebaseAnalytics.registerCustomDimension("noitification_title");
+
+    
     String notificationDetailsJson =
         intent.getStringExtra(FlutterLocalNotificationsPlugin.NOTIFICATION_DETAILS);
 
@@ -138,15 +147,17 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
 //
 //      rudderClient.identify("test_notifcation_delay", traits, null);
 
-
+ 
       Bundle bundle = new Bundle();
       bundle.putString("currentDateTime", formattedDate.toString());
       bundle.putString("scheduledDateTime", notificationDetails.scheduledDateTime.toString());
       bundle.putString("isPowerSavingModeOn", isPowerSavingModeOn);
       bundle.putString("isDoNotDisturbOn", isDoNotDisturbOn);
       bundle.putString("isBatteryOptimizationEnabled", isBatteryOptimizationEnabled);
-      bundle.putString("noitification title", notificationDetails.title.toString());
-      mFirebaseAnalytics.logEvent("delay_notification_test", bundle);
+      bundle.putString("noitification_title", notificationDetails.title.toString());
+
+      
+      mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM, bundle);
 
     }
   }
