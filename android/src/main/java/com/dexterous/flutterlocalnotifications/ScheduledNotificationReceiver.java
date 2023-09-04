@@ -56,15 +56,6 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
         intent.getStringExtra(FlutterLocalNotificationsPlugin.NOTIFICATION_DETAILS);
 
     
-    // Get the extra data from the intent.
-    Bundle extras = intent.getExtras();
-    // The extra data will contain a key called "scheduled_notification_time".
-    long scheduledNotificationTime = extras.getLong("scheduled_notification_time");
-
-    // Convert the Unix timestamp to a human-readable format.
-String scheduledNotificationTimeString = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date(scheduledNotificationTime));
-
-    
     if (StringUtils.isNullOrEmpty(notificationDetailsJson)) {
       // This logic is needed for apps that used the plugin prior to 0.3.4
 
@@ -109,9 +100,6 @@ String scheduledNotificationTimeString = new SimpleDateFormat("dd/MM/yyyy HH:mm:
       SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
       String formattedDate = dateFormat.format(date);
       
-      
-      Log.d("scheduledNotificationTime:",String.valueOf(scheduledNotificationTime));
-      Log.d("scheduledNotificationTimeString:",scheduledNotificationTimeString.toString());
       Log.d("notificationDetailsJson:",notificationDetailsJson.toString());
       Log.d("currentDateTime:",formattedDate.toString());
       Log.d("scheduledDateTime:",notificationDetails.scheduledDateTime.toString());
