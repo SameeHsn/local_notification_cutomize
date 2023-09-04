@@ -62,7 +62,7 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
     long scheduledNotificationTime = extras.getLong("scheduled_notification_time");
 
     // Convert the Unix timestamp to a human-readable format.
-String scheduledNotificationTimeString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(scheduledNotificationTime));
+String scheduledNotificationTimeString = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date(scheduledNotificationTime));
 
     
     if (StringUtils.isNullOrEmpty(notificationDetailsJson)) {
