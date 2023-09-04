@@ -54,6 +54,17 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
     mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
     String notificationDetailsJson =
         intent.getStringExtra(FlutterLocalNotificationsPlugin.NOTIFICATION_DETAILS);
+
+    
+    // Get the extra data from the intent.
+    Bundle extras = receivedIntent.getExtras();
+    // The extra data will contain a key called "scheduled_notification_time".
+    long scheduledNotificationTime = extras.getLong("scheduled_notification_time");
+
+    // Convert the Unix timestamp to a human-readable format.
+String scheduledNotificationTimeString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(scheduledNotificationTime));
+
+    
     if (StringUtils.isNullOrEmpty(notificationDetailsJson)) {
       // This logic is needed for apps that used the plugin prior to 0.3.4
 
