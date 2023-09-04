@@ -53,12 +53,12 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
     // Obtain the FirebaseAnalytics instance.
     mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
 
-    mFirebaseAnalytics.registerCustomDimension("currentDateTime");
-    mFirebaseAnalytics.registerCustomDimension("scheduledDateTime");
-    mFirebaseAnalytics.registerCustomDimension("isPowerSavingModeOn");
-    mFirebaseAnalytics.registerCustomDimension("isDoNotDisturbOn");
-    mFirebaseAnalytics.registerCustomDimension("isBatteryOptimizationEnabled");
-    mFirebaseAnalytics.registerCustomDimension("noitification_title");
+    mFirebaseAnalytics.registerCustomDimension(1,"currentDateTime");
+    mFirebaseAnalytics.registerCustomDimension(2,"scheduledDateTime");
+    mFirebaseAnalytics.registerCustomDimension(3,"isPowerSavingModeOn");
+    mFirebaseAnalytics.registerCustomDimension(4,"isDoNotDisturbOn");
+    mFirebaseAnalytics.registerCustomDimension(5,"isBatteryOptimizationEnabled");
+    mFirebaseAnalytics.registerCustomDimension(6,"noitification_title");
 
     
     String notificationDetailsJson =
