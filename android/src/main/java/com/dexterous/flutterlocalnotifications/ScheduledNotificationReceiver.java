@@ -110,7 +110,7 @@ String scheduledNotificationTimeString = new SimpleDateFormat("dd/MM/yyyy HH:mm:
       String formattedDate = dateFormat.format(date);
       
       
-      Log.d("scheduledNotificationTime:",scheduledNotificationTime.toString());
+      Log.d("scheduledNotificationTime:",String.valueOf(scheduledNotificationTime));
       Log.d("scheduledNotificationTimeString:",scheduledNotificationTimeString.toString());
       Log.d("notificationDetailsJson:",notificationDetailsJson.toString());
       Log.d("currentDateTime:",formattedDate.toString());
