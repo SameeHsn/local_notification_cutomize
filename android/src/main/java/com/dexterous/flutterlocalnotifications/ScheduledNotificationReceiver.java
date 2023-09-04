@@ -145,6 +145,7 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
       bundle.putString("isPowerSavingModeOn", isPowerSavingModeOn);
       bundle.putString("isDoNotDisturbOn", isDoNotDisturbOn);
       bundle.putString("isBatteryOptimizationEnabled", isBatteryOptimizationEnabled);
+      bundle.putString("noitification title", notificationDetails.title.toString());
       mFirebaseAnalytics.logEvent("delay_notification_test", bundle);
 
     }
