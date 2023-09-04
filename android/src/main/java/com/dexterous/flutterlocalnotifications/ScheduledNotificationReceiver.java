@@ -53,12 +53,12 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
     // Obtain the FirebaseAnalytics instance.
     mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
 
-    mFirebaseAnalytics.registerCustomDimension(1,"currentDateTime");
-    mFirebaseAnalytics.registerCustomDimension(2,"scheduledDateTime");
-    mFirebaseAnalytics.registerCustomDimension(3,"isPowerSavingModeOn");
-    mFirebaseAnalytics.registerCustomDimension(4,"isDoNotDisturbOn");
-    mFirebaseAnalytics.registerCustomDimension(5,"isBatteryOptimizationEnabled");
-    mFirebaseAnalytics.registerCustomDimension(6,"noitification_title");
+    // mFirebaseAnalytics.registerCustomDimension(1,"currentDateTime");
+    // mFirebaseAnalytics.registerCustomDimension(2,"scheduledDateTime");
+    // mFirebaseAnalytics.registerCustomDimension(3,"isPowerSavingModeOn");
+    // mFirebaseAnalytics.registerCustomDimension(4,"isDoNotDisturbOn");
+    // mFirebaseAnalytics.registerCustomDimension(5,"isBatteryOptimizationEnabled");
+    // mFirebaseAnalytics.registerCustomDimension(6,"noitification_title");
 
     
     String notificationDetailsJson =
@@ -149,12 +149,19 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
 
  
       Bundle bundle = new Bundle();
-      bundle.putString("currentDateTime", formattedDate.toString());
-      bundle.putString("scheduledDateTime", notificationDetails.scheduledDateTime.toString());
-      bundle.putString("isPowerSavingModeOn", isPowerSavingModeOn);
-      bundle.putString("isDoNotDisturbOn", isDoNotDisturbOn);
-      bundle.putString("isBatteryOptimizationEnabled", isBatteryOptimizationEnabled);
-      bundle.putString("noitification_title", notificationDetails.title.toString());
+      // bundle.putString("currentDateTime", formattedDate.toString());
+      // bundle.putString("scheduledDateTime", notificationDetails.scheduledDateTime.toString());
+      // bundle.putString("isPowerSavingModeOn", isPowerSavingModeOn);
+      // bundle.putString("isDoNotDisturbOn", isDoNotDisturbOn);
+      // bundle.putString("isBatteryOptimizationEnabled", isBatteryOptimizationEnabled);
+      // bundle.putString("noitification_title", notificationDetails.title.toString());
+
+      bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, formattedDate.toString());
+      // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, notificationDetails.scheduledDateTime.toString());
+      // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, isPowerSavingModeOn);
+      // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, isDoNotDisturbOn);
+      // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, isBatteryOptimizationEnabled);
+      bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, notificationDetails.title.toString());
 
       
       mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM, bundle);
