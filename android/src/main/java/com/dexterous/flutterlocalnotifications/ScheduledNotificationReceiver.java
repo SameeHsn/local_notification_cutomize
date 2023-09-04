@@ -57,7 +57,7 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
 
     
     // Get the extra data from the intent.
-    Bundle extras = receivedIntent.getExtras();
+    Bundle extras = intent.getExtras();
     // The extra data will contain a key called "scheduled_notification_time".
     long scheduledNotificationTime = extras.getLong("scheduled_notification_time");
 
