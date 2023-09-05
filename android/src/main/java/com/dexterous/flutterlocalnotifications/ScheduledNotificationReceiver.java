@@ -149,22 +149,23 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
 
  
       Bundle bundle = new Bundle();
-      // bundle.putString("currentDateTime", formattedDate.toString());
-      // bundle.putString("scheduledDateTime", notificationDetails.scheduledDateTime.toString());
-      // bundle.putString("isPowerSavingModeOn", isPowerSavingModeOn);
-      // bundle.putString("isDoNotDisturbOn", isDoNotDisturbOn);
-      // bundle.putString("isBatteryOptimizationEnabled", isBatteryOptimizationEnabled);
-      // bundle.putString("noitification_title", notificationDetails.title.toString());
-
+      bundle.putString("currentDateTime", formattedDate.toString());
+      bundle.putString("scheduledDateTime", notificationDetails.scheduledDateTime.toString());
+      bundle.putString("isPowerSavingModeOn", isPowerSavingModeOn);
+      bundle.putString("isDoNotDisturbOn", isDoNotDisturbOn);
+      bundle.putString("isBatteryOptimizationEnabled", isBatteryOptimizationEnabled);
+      bundle.putString("noitification_title", notificationDetails.title.toString());
+      Log.d("-------- :event logged Bundle",bundle);
       // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, formattedDate.toString());
       // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, notificationDetails.scheduledDateTime.toString());
       // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, isPowerSavingModeOn);
       // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, isDoNotDisturbOn);
       // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, isBatteryOptimizationEnabled);
-      bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, notificationDetails.title.toString());
+      // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, notificationDetails.title.toString());
 
       
-      mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM, bundle);
+      mFirebaseAnalytics.logEvent("delay_notification_test_demo", bundle);
+      // mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM, bundle);
 
     }
   }
