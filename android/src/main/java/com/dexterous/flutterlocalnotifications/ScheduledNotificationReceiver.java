@@ -155,7 +155,7 @@ public class ScheduledNotificationReceiver extends BroadcastReceiver {
       bundle.putString("isDoNotDisturbOn", isDoNotDisturbOn);
       bundle.putString("isBatteryOptimizationEnabled", isBatteryOptimizationEnabled);
       bundle.putString("noitification_title", notificationDetails.title.toString());
-      Log.d("-------- :event logged Bundle",bundle);
+      Log.d("-------- :event logged Bundle",bundle.toString());
       // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, formattedDate.toString());
       // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, notificationDetails.scheduledDateTime.toString());
       // bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, isPowerSavingModeOn);
